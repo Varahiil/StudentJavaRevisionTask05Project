@@ -26,6 +26,34 @@ package by.itstep.javatraining.revision.task;
 
 public class Task01 {
     public static int task01(int a, int b, int c, int d) {
-        return 0;
+        int count = 1;
+        if (a == b) {
+            count++;
+            if (a == c) {
+                count++;
+                if (a == d) {
+                    count++;
+                }
+            } else if (a == d) {
+                count++;
+            }
+        } else if (a == c) {
+            count++;
+            if (a == d) {
+                count++;
+            }
+        } else if (a == d) {
+            count++;
+        } else if (b == c) {
+            count++;
+            if (b == d) {
+                count++;
+            }
+        } else if (c == d) {
+            count++;
+        } else {
+            count = 0;
+        }
+        return count;
     }
 }
