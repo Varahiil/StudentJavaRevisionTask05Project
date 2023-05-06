@@ -28,6 +28,24 @@ package by.itstep.javatraining.revision.task;
 
 public class Task05 {
     public static int task05(int a, int b, int c) {
-        return 0;
+        if (a == b || b == c || c == a) {
+            return 0;
+        }
+        if (a > b) {
+            int x = b;
+            b = a;
+            a = x;
+        }
+        if (b > c) {
+            int x = c;
+            c = b;
+            b = x;
+        }
+        if (a > b) {
+            int x = b;
+            b = a;
+            a = x;
+        }
+        return b;
     }
 }
