@@ -40,6 +40,16 @@ package by.itstep.javatraining.revision.task;
 
 public class Task06 {
     public static String task06(int number) {
-        return "?";
+        String msg = "black";
+        if (number < 0 || number > 36) {
+            return "error";
+        }
+        if (number == 0) {
+            msg = "green";
+        } else if (number % 2 != 0 && (number < 10 || number > 18 && number < 28) || number % 2 == 0 && (number > 11 && number < 19 || number > 29)) {
+            msg = "red";
+        }
+
+        return msg;
     }
 }
