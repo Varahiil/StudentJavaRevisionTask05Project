@@ -2,7 +2,7 @@ package by.itstep.javatraining.revision.task;
 
 /*	Task 07. Color Mixer [цветовой микшер]
  *
- *  Красный (red), синий (blue) и желтый (yellow) называются основными цветами,
+ *  Красный (redColor), синий (blueColor) и желтый (yellowColor) называются основными цветами,
  *  потому что их нельзя получить путем смешения других цветов.
  *  При смешивании двух основных цветов получается вторичный цвет:
  *  1) если смешать красный и синий, то получится фиолетовый (violet);
@@ -42,6 +42,20 @@ package by.itstep.javatraining.revision.task;
 
 public class Task07 {
     public static String task07(String color1, String color2) {
-        return "?";
+        String msg = "green";
+        if (color1 == null || color2 == null ||
+                !color1.equals("red") && !color1.equals("yellow") && !color1.equals("blue") ||
+                !color2.equals("red") && !color2.equals("yellow") && !color2.equals("blue")) {
+            return "error";
+        }
+        if (color1.equals(color2)) {
+            msg = color1;
+
+        } else if (color1.equals("red") && color2.equals("blue") || color2.equals("red") && color1.equals("blue")) {
+            msg = "violet";
+        } else if (color1.equals("red") || color2.equals("red")) {
+            msg = "orange";
+        }
+        return msg;
     }
 }
