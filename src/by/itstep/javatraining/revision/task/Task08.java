@@ -42,6 +42,26 @@ package by.itstep.javatraining.revision.task;
 
 public class Task08 {
     public static String task08(int day, int month, int year) {
-        return "?";
+        int maxDays = month == 4 || month == 6 || month == 9 || month == 11 ? 30 : 31;
+        int maxDaysFebruary = year % 4 == 0 && (year % 100 != 0 || year % 400 == 0) ? 29 : 28;
+
+        if (day < 1 || month < 1 || month > 12 || year < 0 || month == 2 && day > maxDaysFebruary ||
+                day > maxDays) {
+            return "Error.";
+        }
+
+        if (month == 2 && day == maxDaysFebruary || day == maxDays) {
+            day = 1;
+            if (month == 12) {
+                month = 1;
+                ++year;
+            } else {
+                ++month;
+            }
+        } else {
+            ++day;
+        }
+
+        return String.format("%02d." + "%02d." + "%04d", day, month, year);
     }
 }
